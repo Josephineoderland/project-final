@@ -22,9 +22,6 @@ mongoose.connect(`mongodb://${process.env.DB_HOST}:${process.env.DB_PORT}`, {
 
 const db = mongoose.connection
 db.on("error", console.error.bind(console, "Anslutningsfel:"))
-db.once("open", () => {
-  console.log("Ansluten till databasen")
-})
 
 const generateToken = (user) => {
   return jwt.sign({ id: user._id }, process.env.JWT_SECRET, { expiresIn: "1h" })

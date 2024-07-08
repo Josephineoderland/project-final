@@ -47,7 +47,7 @@ const PrivChat = () => {
         })
 
         const data = await response.json()
-        console.log("Unread messages data:", data)
+
         if (data.unreadCounts) {
           setUnreadMessages(data.unreadCounts)
         } else {
@@ -63,8 +63,6 @@ const PrivChat = () => {
   }, [])
 
   useEffect(() => {
-    console.log("Friends:", friends)
-    console.log("Unread messages state:", unreadMessages)
   }, [friends, unreadMessages])
 
   const handleChatClick = async (friendId) => {

@@ -12,7 +12,7 @@ const Navbar = ({ isLoggedIn, updateIsLoggedIn }) => {
   useEffect(() => {
     const token = localStorage.getItem("token")
     if (token) {
-      updateIsLoggedIn(true) 
+      updateIsLoggedIn(true)
     }
   }, [updateIsLoggedIn])
 
@@ -67,6 +67,13 @@ const Navbar = ({ isLoggedIn, updateIsLoggedIn }) => {
               aria-label="Visa användarmeny"
             >
               <i className="far fa-user"></i>
+            </button>
+            <button
+              className="info-icon-btn"
+              onClick={() => navigate("/info")}
+              aria-label="Info"
+            >
+              <i className="fas fa-info-circle"></i>
             </button>
           </div>
         </div>

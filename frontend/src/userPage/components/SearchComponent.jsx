@@ -1,4 +1,4 @@
-import React, { useState } from "react"
+import React, { useState, useEffect } from "react"
 import { apiRequest } from "../../utils/api"
 import { Link } from "react-router-dom"
 import "../../css/searchComponent.css"
@@ -38,6 +38,10 @@ const SearchComponent = () => {
     setShowResults(!showResults)
   }
 
+  useState(() => {
+    handleSearch()
+  });
+
   return (
     <>
       <div className="title-container">
@@ -50,7 +54,7 @@ const SearchComponent = () => {
             id="newMessageInput"
             value={searchTerm}
             onChange={(e) => setSearchTerm(e.target.value)}
-            placeholder="..."
+            placeholder="Search for user"
             className="searchTerm"
           />
           <button className="searchButton" onClick={handleSearch}>

@@ -18,6 +18,17 @@
   margin: 0;
 }
 
+.watermark {
+  position: absolute;
+  bottom: 10px;
+  right: 10px;
+  font-size: 14px;
+  color: rgba(255, 255, 255, 0.7);
+  background-color: rgba(0, 0, 0, 0.5);
+  padding: 5px 10px;
+  border-radius: 5px;
+}
+
 @media (min-width:760px) and (max-width: 1024px) {
   .img-container {
     height: 500px;

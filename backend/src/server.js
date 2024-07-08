@@ -58,7 +58,6 @@ router.use(
   "/uploads",
   express.static(path.join(__dirname, "../public/uploads"))
 )
-console.log(path.join(__dirname, "../public/profile-uploads"))
 router.use(
   "/profile-uploads",
   express.static(path.join(__dirname, "../public/profile-uploads"))
@@ -82,21 +81,14 @@ router.use("/my-page", postRouter)
 app.use("/api", router)
 
 io.on("connection", (socket) => {
-  console.log("New client connected")
-
   socket.on("joinRoom", ({ userId, receiverId }) => {
-    console.log(`sendMessage(userId=${userId}, receiverId=${receiverId})`)
     const room = [userId, receiverId].sort().join("-")
     socket.join(room)
   })
 
   socket.on("sendMessage", async ({ message, userId, receiverId }) => {
-    console.log(
-      `sendMessage(message=${message}, userId=${userId}, receiverId=${receiverId})`
-    )
     const sender = await User.findById(userId)
     if (!sender) {
-      console.log("Sender not found: " + userId)
       return
     }
 
@@ -107,12 +99,6 @@ io.on("connection", (socket) => {
     })
     sendMessage(userId, receiverId, message)
   })
-
-  socket.on("disconnect", () => {
-    console.log("Client disconnected")
-  })
 })
 
-server.listen(port, () => {
-  console.log(`Chattservern lyssnar på port ${port}`)
-})
+server.listen(port, () => {})

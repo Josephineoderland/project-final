@@ -60,6 +60,7 @@ const ImageCarousel = () => {
       <AnimatePresence>
         <CarouselText key={currentText} text={currentText} isActive={true} />
       </AnimatePresence>
+      <div className="watermark">Artist: Josephine Oderland</div>
     </div>
   )
 }

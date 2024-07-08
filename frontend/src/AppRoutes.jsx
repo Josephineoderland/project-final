@@ -19,6 +19,7 @@ import UserPage from "./userPage/user/UserPage"
 import { isLoggedIn } from "./userPage/auth/authUtils"
 import Chat from "./userPage/user/Chat"
 import SearchComponent from "./userPage/components/SearchComponent"
+import InfoPage from "./home/InfoPage"
 
 const AppRoutes = ({ onLogin, onRegister }) => {
   return (
@@ -36,6 +37,7 @@ const AppRoutes = ({ onLogin, onRegister }) => {
       <Route path="/chat" element={<ChatPage />} />
       <Route path="/login" element={<Login onLogin={onLogin} />} />
       <Route path="/register" element={<Register onRegister={onRegister} />} />
+      <Route path="/info" element={<InfoPage />} />
       <Route
         path="/my-page/*"
         element={isLoggedIn() ? <MyPage /> : <Navigate to="/login" />}

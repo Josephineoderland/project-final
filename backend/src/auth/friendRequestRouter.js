@@ -49,8 +49,6 @@ friendRequestRouter.get(
 friendRequestRouter.post("/send/:userId", authenticateJWT, async (req, res) => {
   const { userId } = req.params
   const { id: loggedInUserId } = req.user
-  console.log(userId)
-  console.log(loggedInUserId)
 
   if (userId === loggedInUserId) {
     return res

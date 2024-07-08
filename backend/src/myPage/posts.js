@@ -24,9 +24,6 @@ mongoose.connect(`mongodb://${process.env.DB_HOST}:${process.env.DB_PORT}`, {
 
 const db = mongoose.connection
 db.on("error", console.error.bind(console, "Anslutningsfel:"))
-db.once("open", () => {
-  console.log("Ansluten till databasen")
-})
 
 router.use(express.json())
 
